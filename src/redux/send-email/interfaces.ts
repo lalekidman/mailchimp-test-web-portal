@@ -3,25 +3,24 @@ import * as actionTypes from './action-types'
 export interface IFetchOrderListActions {
   type: string
 }
-export type ISignInAccountState  = {
-  data: IAccountData
+export type ISendEmailState  = {
+  data: IEmail
   status: IDEFAULT_REDUCER_STATUSES
   error: string|null
   retry: number
 }
-export interface ISignInAccountParams {
-  username: string
-  password: string
+export type IEmailBody = {
+  senderName: string
+  senderEmail: string
+  recipients: string
 }
-export type IAccountData = {
+
+export type IEmail = IEmailBody & {
   _id: string
-  firstName: string
-  lastName: string
-  middleName?: string
   updatedAt: number
   createdAt: number
 }
-export type ISignInAccountReducer = {
+export type IMailerReducer = {
   payload: any
   error?: any,
   type: keyof typeof actionTypes

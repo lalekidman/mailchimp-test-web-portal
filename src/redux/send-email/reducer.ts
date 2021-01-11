@@ -1,12 +1,12 @@
 import * as actionTypes from './action-types'
 import { DEFAULT_REDUCER_STATUSES } from '../../utils/constants'
-import { ISignInAccountState, ISignInAccountReducer } from './interfaces'
-const initialState:ISignInAccountState = {
+import { ISendEmailState, IMailerReducer } from './interfaces'
+const initialState:ISendEmailState = {
   data: {
     _id: '',
-    firstName: '',
-    lastName: '',
-    middleName: '',
+    senderEmail: '',
+    senderName: '',
+    recipients: '',
     createdAt: 0,
     updatedAt: 0,
   },
@@ -14,22 +14,22 @@ const initialState:ISignInAccountState = {
   error: null,
   retry: 0
 }
-export const signInAccountReducer = (state = initialState, actions: ISignInAccountReducer): ISignInAccountState => {
+export const sendEmailReducer = (state = initialState, actions: IMailerReducer): ISendEmailState => {
   const {type, payload, error} = actions
   switch (type) {
-    case actionTypes.ACCOUNT_SIGN_IN_PENDING:
+    case actionTypes.SEND_EMAIL_FAILED:
       return {
         ...state,
         status: DEFAULT_REDUCER_STATUSES.FETCHING,
         retry: state.retry + 1
       }
-    case actionTypes.ACCOUNT_SIGN_IN_SUCCEED:
+    case actionTypes.SEND_EMAIL_SUCCEED:
       return {
         ...state,
         data: payload,
         status: DEFAULT_REDUCER_STATUSES.FETCHED
       }
-    case actionTypes.ACCOUNT_SIGN_IN_FAILED:
+    case actionTypes.SEND_EMAIL_FAILED:
       return {
         ...state,
         error,

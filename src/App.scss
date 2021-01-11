@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.main-wrapper {
+}
+.mail-wrapper {
+  margin: auto;
+  margin-top: 80px;
+  padding-top: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  height: 450px;
+  width: 50%;
+  background-color: #eeeeee;
+  border: 1px #cccccc solid;
+  border-radius: 10px;
+}
+.mail-wrapper > .mail-form {
+  padding:10px;
+}

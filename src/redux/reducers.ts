@@ -1,9 +1,5 @@
 import {combineReducers} from 'redux'
-import {signInAccountReducer} from './todos/reducer'
-// import { IFetchOrderState } from './sign-in/interfaces'
-// import reducers here
+import {sendEmailReducer} from './send-email/reducer'
 export default combineReducers({
-    authorizedAccount: signInAccountReducer
-//   toast
-// implement here
+    mail: sendEmailReducer
 })
